@@ -649,37 +649,6 @@
 "Procedure","external bleaching per tooth",9973,
 "Procedure","internal bleaching per tooth",9974,
 "Procedure","external bleaching for home application, per arch; includes materials and fabrication of custom trays",9975,
-"AncillarySale","sales tax",9985,
-"AncillarySale","missed appointment",9986,
-"AncillarySale","cancelled appointment",9987,
-"Procedure","unspecified adjunctive procedure, by report",9999,"Used for procedure that is not adequately described by a code. Describe procedure."
-"Procedure","Adjust Bite",,
-"Procedure","Adjust Occlusal Guard",,
-"Procedure","Adjust Temporary Crown",,
-"AncillarySale","Bleach Pen",,
-"AncillarySale","Bleach Refill Kit",,
-"Procedure","Deliver Bridge",,
-"Procedure","Deliver Crown",,
-"Procedure","Deliver Denture",,
-"Procedure","Deliver InvisAlign",,
-"Procedure","Deliver Occusal Guard",,
-"Procedure","Deliver Partial",,
-"AncillarySale","Fluoridex Toothpaste",,
-"Procedure","Framework Try In",,
-"Procedure","In-office Bleaching",,
-"Procedure","Lab Fee",,
-"Procedure","Re-Eval Perio",,
-"Procedure","Redo Crown",,
-"Procedure","Redo Filling",,
-"Procedure","ReImpress",,
-"Procedure","Teeth In Wax Try In",,
-"Procedure","Wax Try-in",,
-"Procedure","Infection Control",,
-"Procedure","Seat Crown",,"Seat crown"
-"Procedure","Recement of Temporary Crown",,"Recement of Temporary Crown"
-"Procedure","Recement of Permanent Crown",,"Recement of Permanent Crown"
-"Procedure","Scaling in presence of generalized moderate or severe gingival inflammation – full mouth, after oral evaluation",4346,"The removal of plaque, calculus and stains from supra- and sub-gingival tooth surfaces when there is generalized moderate or severe gingival inflammation in the absence of periodontitis. It is indicated for patients who have swollen, inflamed gingiva, generalized suprabony pockets, and moderate to severe bleeding on probing. Should not be reported in conjunction with prophylaxis, scaling and root planing, or debridement procedures. "
-"Procedure","blood glucose level test – in-office using a glucose meter",412,"blood glucose level test – in-office using a glucose meter. This procedure provides an immediate finding of a patient’s blood glucose level at the time of sample collection for the point-of-service analysis."
 "Procedure","space maintainer – fixed – bilateral, maxillary",1516,
 "Procedure","space maintainer – fixed – bilateral, mandibular",1517,
 "Procedure","space maintainer – removable – bilateral, maxillary",1526,
@@ -786,13 +755,9 @@
 "Procedure","Invisalign Case Start (Comprehensive)",,"Start of Invisalign Comprehensive case."
 "Procedure","Invisalign Case Start (iGo)",,"Start of an Invisalign iGo case."
 "Procedure","Invisalign Case Finish",,"Completion of an Invisalign case."
-"Payment","Payment by Credit Card",,
-"Payment","Payment by CareCredit",,
-"Payment","Payment by Cash",,
-"Payment","Payment by Check",,
-"Payment","Payment by EFT",,
-"Payment","Payment (unknown method)",,
-"Payment","Payment by LendingClub",,"Payment through LendingClub"
-"Payment","Payment by Compassionate Finance",,"Payment through Compassionate Healthcare Finance"
-"Payment","Pre-Conversion Credit Balance",,"Converted account credit balance. D not use for anything other than credit balances converted over from prior system that we need to treat as payments for payroll purposes. These amounts must only be entered prior to the Intacct lock or affiliation date."
-"Payment","Returned Payment",,"Reversal for a returned payment."
+"Payment","Payment by Credit Card",1,
+"Payment","Payment by CareCredit",2,
+"Payment","Payment by Cash",3,
+"Payment","Payment by Check",4,
+"Payment","Payment by EFT",5,
+"Payment","Payment (unknown method)",6,
