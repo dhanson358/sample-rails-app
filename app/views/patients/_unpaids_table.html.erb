@@ -1,0 +1,35 @@
+<div class="container justify-content-between">
+  <div class="row">
+    <div class="col">
+      <h1>Procedures (Charges) </h1>
+    </div>
+  </div>
+</div>
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>Cdt code</th>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Performed by</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unpaids.each do |unpaid| %>
+      <tr>
+        <td><%= link_to unpaid.cdt_code, unpaid.transaction_code %></td>
+        <td><%= unpaid.transaction_code&.entry_type %></td>
+        <td>$<%= unpaid.amount %></td>
+        <td><%= unpaid.date %></td>
+        <td><%= unpaid.performed_by %></td>
+        <td><%= link_to 'Show', unpaid %></td>
+        <td><%= link_to 'Edit', edit_transaction_path(unpaid) %></td>
+        <td><%= link_to 'Destroy', unpaid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

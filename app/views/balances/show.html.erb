@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<div class="Balance_info">
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-action list-group-item-dark">
+      <p>
+        <strong>Patient id:</strong> <%= @balance.patient_id %>
+      </p>
+    </li>
+    <li class="list-group-item list-group-item-action">
+      <p>
+        <strong>Balance:</strong> $<%= @balance.balance %>
+      </p>
+    </li>
+    <li class="list-group-item list-group-item-action list-group-item-dark">
+      <p>
+        <strong>Patient Name:</strong><%= full_name(@balance.patient) %>
+      </p>
+    </li>
+    <li class="list-group-item list-group-item-action">
+      <p>
+        <strong>Phone:</strong><%= number_to_phone(@balance.patient.phone) %>
+      </p>
+    </li>
+    <li class="list-group-item list-group-item-action list-group-item-dark">
+      <p>
+        <strong>Last Payment:</strong><%= last_payment_date_to_words(@balance.patient.last_payment) %>
+      </p>
+    </li>
+    <li class="list-group-item list-group-item-action">
+      <p>
+        <%= link_to 'New Payment', new_payment_path(patient_id: @balance.patient.id), class: 'btn btn-primary' %>
+        </p>
+    </li>
+  </ul>
+</div>
+<%= link_to 'Back', balances_path %>

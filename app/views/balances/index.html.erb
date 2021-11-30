@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container justify-content-between">
+  <div class="row">
+    <div class="col">
+      <h1>Dashboard</h1>
+    </div>
+    <div class="col">
+      <%= link_to 'New Transaction', new_transaction_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<%= render 'by_largest_outstanding_balance_table'%>
+<%= render 'by_oldest_unpaid_table'%>
+
+<br>

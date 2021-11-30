@@ -1,0 +1,26 @@
+<h2> By Largest Outstading Balance</h2>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>Patient</th>
+      <th>Phone</th>
+      <th>Balance</th>
+      <th>Last payment date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @balances.each do |balance| %>
+      <tr>
+        <td><%= full_name(balance.patient) %></td>
+        <td><%= number_to_phone(balance.patient.phone) %></td>
+        <td><%= balance.balance %></td>
+        <td><%= last_payment_date_to_words(balance.patient.last_payment) %></td>
+        <td><%= link_to 'Show', balance %></td>
+        <td><%= link_to 'New Payment', new_payment_path(patient_id: balance.patient.id), class: 'btn btn-primary' %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<div class="user_info">
+<ul class="list-group">
+  <li class="list-group-item list-group-item-action list-group-item-dark">
+    <p>
+      <strong>First name:</strong>
+      <%= @patient.first_name %>
+    </p>
+  </li>
+  <li class="list-group-item list-group-item-action">
+    <p>
+      <strong>Last name:</strong>
+      <%= @patient.last_name %>
+    </p>
+  </li>
+  <li class="list-group-item list-group-item-action list-group-item-dark">
+    <p>
+      <strong>Gender:</strong>
+      <%= @patient.gender %>
+    </p>
+  </li>
+  <li class="list-group-item list-group-item-action">
+    <p>
+      <strong>Age:</strong>
+      <%= @patient.age %>
+    </p>
+  </li>
+  <li class="list-group-item list-group-item-action list-group-item-dark">
+    <p>
+      <strong>Email:</strong>
+      <%= @patient.email %>
+    </p>
+  </li>
+  <li class="list-group-item list-group-item-action">
+
+    <p>
+      <strong>Phone:</strong>
+      <%= @patient.phone %>
+    </p>
+  </li>
+  <li class="list-group-item list-group-item-action list-group-item-dark">
+    <p>
+      <strong>Debt?:</strong>
+      <%= in_debt_to_words(@patient) %>
+    </p>
+  </li>
+</ul>
+</div>
+<br>
+<%= link_to 'Edit', edit_patient_path(@patient), class: "btn btn-primary" %> |
+<%= link_to 'Back', patients_path, class: "btn btn-primary" %>
+
+<%= render 'payments_table'%>
+<%= render 'unpaids_table'%>

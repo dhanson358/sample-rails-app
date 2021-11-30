@@ -5,7 +5,7 @@ FILENAME = "sample_data/transactions.csv"
 HEADERS = ['Patient ID', 'CDT Code', 'Amount', 'Date', 'Performed By']
 PROVIDERS = ['Dr. Smith', 'Cindy']
 
-task :generate do
+task :generate_proc do
   procs = [
     {
       code: 1120,
@@ -14,7 +14,7 @@ task :generate do
     {
       code: 1206,
       amount: 85.00,
-    }, 
+    },
     {
       code: 2330,
       amount: 45.00
@@ -44,7 +44,7 @@ task :generate do
   start = 1.year.ago
 
   CSV.open(FILENAME, 'w', write_headers: true, headers: HEADERS) do |writer|
-  
+
     (1..10).each do |patid|
       (1..10).each do |n|
         proc = procs.sample
