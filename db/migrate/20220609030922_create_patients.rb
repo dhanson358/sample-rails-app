@@ -12,4 +12,3 @@ class CreatePatients < ActiveRecord::Migration[6.1]
     end
   end
 end
-#has_many transactions

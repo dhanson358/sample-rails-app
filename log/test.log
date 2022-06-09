@@ -542,3 +542,94 @@ FOREIGN KEY ("patient_id")
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (37.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "sample_rails_app_test"[0m
+  [1m[35m (172.0ms)[0m  [1m[35mCREATE DATABASE "sample_rails_app_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "patients" CASCADE[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "patients" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_number" character varying, "email" character varying, "gender" integer, "age" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "transaction_codes" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "transaction_codes" ("id" bigserial primary key, "entry_type" integer, "title" character varying, "cdt_code" integer, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "transactions" CASCADE[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "transactions" ("id" bigserial primary key, "cdt_code" integer, "amount" float, "date" timestamp, "performed_by" character varying, "patient_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_transactions_on_patient_id" ON "transactions" ("patient_id")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "transactions" ADD CONSTRAINT "fk_rails_688a36e642"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220609031754)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220609030922),
+(20220609031128);
+
+[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-06-09 05:37:59.740922"], ["updated_at", "2022-06-09 05:37:59.740922"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "821e72bdfedc44da27eb2cb6db59ce8e4039c654"], ["created_at", "2022-06-09 05:37:59.744923"], ["updated_at", "2022-06-09 05:37:59.744923"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPatient Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."phone_number" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPatient Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."phone_number" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPatient Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."phone_number" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPatient Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."phone_number" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" ORDER BY "patients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPatient Create (1.0ms)[0m  [1m[32mINSERT INTO "patients" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2022-06-09 05:37:59.859616"], ["updated_at", "2022-06-09 05:37:59.859616"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPatient Update (0.9ms)[0m  [1m[33mUPDATE "patients" SET "phone_number" = $1, "updated_at" = $2 WHERE "patients"."id" = $3[0m  [["phone_number", "an arbitrary value"], ["updated_at", "2022-06-09 05:37:59.861905"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPatient Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPatient Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."phone_number" = $1 LIMIT $2[0m  [["phone_number", "an arbitrary value"], ["LIMIT", 1]]
+  [1m[36mPatient Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPatient Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."phone_number" = $1 LIMIT $2[0m  [["phone_number", "AN ARBITRARY VALUE"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" ORDER BY "patients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPatient Create (0.3ms)[0m  [1m[32mINSERT INTO "patients" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2022-06-09 05:37:59.868719"], ["updated_at", "2022-06-09 05:37:59.868719"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPatient Update (0.3ms)[0m  [1m[33mUPDATE "patients" SET "email" = $1, "updated_at" = $2 WHERE "patients"."id" = $3[0m  [["email", "an arbitrary value"], ["updated_at", "2022-06-09 05:37:59.869720"], ["id", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPatient Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."email" = $1 LIMIT $2[0m  [["email", "an arbitrary value"], ["LIMIT", 1]]
+  [1m[36mPatient Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."phone_number" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPatient Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."email" = $1 LIMIT $2[0m  [["email", "AN ARBITRARY VALUE"], ["LIMIT", 1]]
+  [1m[36mPatient Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "patients" WHERE "patients"."phone_number" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
