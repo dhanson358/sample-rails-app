@@ -1,11 +1,13 @@
 <div class="oldest-unpaid">
   <h4>Oldest Unpaid</h4>
   <% @oldest_unpaid.each do |t| %>
-
+    <p><%= t.last_name + t.first_name %></p>
   <% end %>
 </div>
 
 <div class="largest-unpaid">
   <h4>Largest Unpaid</h4>
   <% @largest_unpaid.each do |t| %>
+    <p><%= t.last_name + t.first_name %></p>
+  <% end %>
 </div>

@@ -12,12 +12,9 @@ class Patient < ApplicationRecord
   end
 
   def self.oldest_unpaid
-    outstanding = Patient.all.select { |p| p.unpaid_balance != nil }
-    patients = []
-    outstanding.each do |obj|
-      # obj.transactions.where("cdt_code > ?", 6).order(amount: :desc)
-      # stopping point
-    end
+    Patient.joins(:transactions)
+           .where('cdt_code > ?', 6)
+           .order(date: :desc)
   end
 
   def unpaid_balance

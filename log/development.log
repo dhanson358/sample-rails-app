@@ -30921,3 +30921,118 @@ app/models/patient.rb:18:in `block in oldest_unpaid'
 app/models/patient.rb:17:in `each'
 app/models/patient.rb:17:in `oldest_unpaid'
 app/controllers/dashboard_controller.rb:5:in `index'
+Started GET "/dashboard" for ::1 at 2022-06-09 09:58:23 -0700
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DashboardController#index as HTML
+  [1m[36mPatient Load (6.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/models/patient.rb:10:in `largest_unpaid'
+  [1m[36mTransaction Load (1.9ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 1]]
+  ↳ app/models/patient.rb:22:in `unpaid_balance'
+  [1m[36mTransaction Load (1.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 2]]
+  ↳ app/models/patient.rb:22:in `unpaid_balance'
+  [1m[36mTransaction Load (1.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 3]]
+  ↳ app/models/patient.rb:22:in `unpaid_balance'
+  [1m[36mTransaction Load (0.9ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 4]]
+  ↳ app/models/patient.rb:22:in `unpaid_balance'
+  [1m[36mTransaction Load (0.8ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 5]]
+  ↳ app/models/patient.rb:22:in `unpaid_balance'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 6]]
+  ↳ app/models/patient.rb:22:in `unpaid_balance'
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 7]]
+  ↳ app/models/patient.rb:22:in `unpaid_balance'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 8]]
+  ↳ app/models/patient.rb:22:in `unpaid_balance'
+  [1m[36mTransaction Load (0.9ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 9]]
+  ↳ app/models/patient.rb:22:in `unpaid_balance'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 10]]
+  ↳ app/models/patient.rb:22:in `unpaid_balance'
+  [1m[36mTransaction Load (3.9ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (cdt_code > 6)[0m
+  ↳ app/models/patient.rb:15:in `oldest_unpaid'
+  [1m[36mCACHE Transaction Load (0.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (cdt_code > 6)[0m
+  ↳ app/models/patient.rb:15:in `oldest_unpaid'
+  [1m[36mCACHE Transaction Load (0.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (cdt_code > 6)[0m
+  ↳ (pry):7:in `oldest_unpaid'
+  [1m[36mPatient Load (8.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "transactions" ON "transactions"."patient_id" = "patients"."id" WHERE (cdt_code > 6) ORDER BY "date" ASC[0m
+  ↳ app/models/patient.rb:15:in `oldest_unpaid'
+  [1m[36mPatient Load (3.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "transactions" ON "transactions"."patient_id" = "patients"."id" WHERE (cdt_code > 6) ORDER BY "date" DESC[0m
+  ↳ app/models/patient.rb:15:in `oldest_unpaid'
+  [1m[36mCACHE Patient Load (0.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "transactions" ON "transactions"."patient_id" = "patients"."id" WHERE (cdt_code > 6) ORDER BY "date" DESC[0m
+  ↳ app/models/patient.rb:15:in `oldest_unpaid'
+  [1m[36mCACHE Patient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "transactions" ON "transactions"."patient_id" = "patients"."id" WHERE (cdt_code > 6) ORDER BY "date" ASC[0m
+  ↳ app/models/patient.rb:15:in `oldest_unpaid'
+  [1m[36mPatient Load (3.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "transactions" ON "transactions"."patient_id" = "patients"."id" WHERE (cdt_code > 6) ORDER BY "date" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (pry):22:in `oldest_unpaid'
+  [1m[36mCACHE Transaction Load (0.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 3]]
+  ↳ app/models/patient.rb:15:in `oldest_unpaid'
+Completed 500 Internal Server Error in 669970ms (ActiveRecord: 68.0ms | Allocations: 1347687)
+
+
+  
+LocalJumpError (no block given (yield)):
+  
+app/models/patient.rb:16:in `oldest_unpaid'
+app/controllers/dashboard_controller.rb:5:in `index'
+Started GET "/dashboard" for ::1 at 2022-06-09 10:09:40 -0700
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DashboardController#index as HTML
+  [1m[36mPatient Load (2.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/models/patient.rb:10:in `largest_unpaid'
+  [1m[36mTransaction Load (2.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 1]]
+  ↳ app/models/patient.rb:23:in `unpaid_balance'
+  [1m[36mTransaction Load (0.9ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 2]]
+  ↳ app/models/patient.rb:23:in `unpaid_balance'
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 3]]
+  ↳ app/models/patient.rb:23:in `unpaid_balance'
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 4]]
+  ↳ app/models/patient.rb:23:in `unpaid_balance'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 5]]
+  ↳ app/models/patient.rb:23:in `unpaid_balance'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 6]]
+  ↳ app/models/patient.rb:23:in `unpaid_balance'
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 7]]
+  ↳ app/models/patient.rb:23:in `unpaid_balance'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 8]]
+  ↳ app/models/patient.rb:23:in `unpaid_balance'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 9]]
+  ↳ app/models/patient.rb:23:in `unpaid_balance'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."patient_id" = $1[0m  [["patient_id", 10]]
+  ↳ app/models/patient.rb:23:in `unpaid_balance'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mPatient Load (4.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "transactions" ON "transactions"."patient_id" = "patients"."id" WHERE (cdt_code > 6) ORDER BY "date" DESC[0m
+  ↳ app/views/dashboard/index.html.erb:3
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 3805)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/Users/dylanharper/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/webpacker-5.4.3/lib/webpacker/runner.rb:13:in ``': No such file or directory - yarn (Errno::ENOENT)
+	from /Users/dylanharper/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/webpacker-5.4.3/lib/webpacker/runner.rb:13:in `initialize'
+	from /Users/dylanharper/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/webpacker-5.4.3/lib/webpacker/runner.rb:6:in `new'
+	from /Users/dylanharper/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/webpacker-5.4.3/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 361.4ms | Allocations: 18283)
+Completed 500 Internal Server Error in 450ms (ActiveRecord: 54.6ms | Allocations: 45630)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /Users/dylanharper/career/apex/sample-rails-app/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
