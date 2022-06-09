@@ -5,8 +5,8 @@ RSpec.describe Transaction, type: :model do
     it { should validate_presence_of :cdt_code }
     it { should validate_presence_of :amount }
     it { should validate_presence_of :date }
-    it { should validate_presence_of :performed_by }
     it { should validate_presence_of :patient_id }
+    # it { should validate_presence_of :performed_by }
   end
 
   describe 'relationships' do
