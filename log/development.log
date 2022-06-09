@@ -83,3 +83,5 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 28ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 2433)
 
 
+  [1m[35m (321.7ms)[0m  [1m[35mCREATE DATABASE "sample_rails_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (54.8ms)[0m  [1m[35mCREATE DATABASE "sample_rails_app_test" ENCODING = 'unicode'[0m
