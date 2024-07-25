@@ -58,6 +58,7 @@ Some seed data is provided in the `sample_data` folder of this project.
 ## Notes
 - The application includes a "kiosk mode" that automatically refreshes the dashboard every 30 seconds.
 - The project was completed without using Docker due to network issues. PostgreSQL was set up and configured manually.
+- Implemented RSpec for testing
 
 ## Overview
 
@@ -134,7 +135,33 @@ This project demonstrates the development of a Rails application for managing pa
 13. **Models**:
     - Add associations and methods in models.
 
-### 6. Final Steps
+### 6. Implementing Testing
+12. **Setup RSpec**:
+    - Install RSpec and necessary gems in your Gemfile:.
+    - group :development, :test do
+      gem 'rspec-rails'
+      gem 'factory_bot_rails'
+      gem 'faker'
+      end
+   - group :test do
+     gem 'shoulda-matchers', '~> 5.0'
+     end
+
+   - Reconfigure spec/rails_helper.rb
+   
+   - bundle install
+   - rails generate rspec:install
+
+   - Create a spec/models/patient_spec.rb file
+   - Create a spec/factories/patients.rb file
+   - Create a spec/factories/transactions.rb file
+
+   - bundle exec rspec
+
+13. **Models**:
+    - Add associations and methods in models.
+
+### 7. Final Steps
 14. **Test the Application**:
     - Start the Rails server and test the application:
       ```sh
@@ -147,7 +174,7 @@ This project demonstrates the development of a Rails application for managing pa
       ```sh
       git add .
       git commit -m "Add payments feature and dashboard"
-      git push origin add-features
+      git push origin mikec
       ```
 
 ## Notes
