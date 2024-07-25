@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Outstanding Balances</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <style>
+    /* Add some basic styling for the buttons */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      background-color: #007bff;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Outstanding Balances</h1>
+
+  <!-- Navigation Buttons -->
+  <div>
+    <%= link_to 'Charge/Credit Patient', new_payment_path, class: 'button' %>
+  </div>
+
+  <div>
+  <h2>By Largest Outstanding Balance</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Patient ID</th>
+        <th>Name</th>
+        <th>Contact Info</th>
+        <th>Outstanding Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @patients.sort_by { |p| -p.outstanding_balance }.each do |patient| %>
+        <tr>
+          <td><%= patient.id %></td>
+          <td><%= patient.name %></td>
+          <td><%= patient.contact_info %></td>
+          <td><%= number_to_currency(patient.outstanding_balance) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <h2>By Oldest Unpaid Balance</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Patient ID</th>
+        <th>Name</th>
+        <th>Contact Info</th>
+        <th>Oldest Unpaid Balance Date</th>
+        <th>Outstanding Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @patients.sort_by { |p| p.oldest_unpaid_transaction&.date || Time.now }.each do |patient| %>
+        <tr>
+          <td><%= patient.id %></td>
+          <td><%= patient.name %></td>
+          <td><%= patient.contact_info %></td>
+          <td>
+            <% unpaid_transaction = patient.oldest_unpaid_transaction %>
+            <%= unpaid_transaction.date.strftime("%Y-%m-%d") if unpaid_transaction %>
+          </td>
+          <td><%= number_to_currency(patient.outstanding_balance) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+
+  <script>
+    setInterval(function() {
+      window.location.reload();
+    }, 30000); // Refresh every 30 seconds
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,62 @@
+=> 
+[[32m#<Patient:0x00007f530038f7e8[0m
+  id: [34m[1m9[0m,
+  name: [36m[1mnil[0m,
+  contact_info: [36m[1mnil[0m,
+  created_at: Thu, 25 Jul 2024 02:04:04.992187000 UTC +00:00,
+  updated_at: Thu, 25 Jul 2024 02:04:04.992187000 UTC +00:00[32m>[0m,
+ [32m#<Patient:0x00007f53003fddd8[0m
+  id: [34m[1m10[0m,
+  name: [36m[1mnil[0m,
+  contact_info: [36m[1mnil[0m,
+  created_at: Thu, 25 Jul 2024 02:04:04.996485000 UTC +00:00,
+  updated_at: Thu, 25 Jul 2024 02:04:04.996485000 UTC +00:00[32m>[0m,
+ [32m#<Patient:0x00007f53003fdce8[0m
+  id: [34m[1m11[0m,
+  name: [36m[1mnil[0m,
+  contact_info: [36m[1mnil[0m,
+  created_at: Thu, 25 Jul 2024 02:04:04.999321000 UTC +00:00,
+  updated_at: Thu, 25 Jul 2024 02:04:04.999321000 UTC +00:00[32m>[0m,
+ [32m#<Patient:0x00007f53003fdbd0[0m
+  id: [34m[1m12[0m,
+  name: [36m[1mnil[0m,
+  contact_info: [36m[1mnil[0m,
+  created_at: Thu, 25 Jul 2024 02:04:05.002119000 UTC +00:00,
+  updated_at: Thu, 25 Jul 2024 02:04:05.002119000 UTC +00:00[32m>[0m,
+ [32m#<Patient:0x00007f53003fdb08[0m
+  id: [34m[1m13[0m,
+  name: [36m[1mnil[0m,
+  contact_info: [36m[1mnil[0m,
+  created_at: Thu, 25 Jul 2024 02:04:05.004426000 UTC +00:00,
+  updated_at: Thu, 25 Jul 2024 02:04:05.004426000 UTC +00:00[32m>[0m,
+ [32m#<Patient:0x00007f53003fd9f0[0m
+  id: [34m[1m14[0m,
+  name: [36m[1mnil[0m,
+  contact_info: [36m[1mnil[0m,
+  created_at: Thu, 25 Jul 2024 02:04:05.007091000 UTC +00:00,
+  updated_at: Thu, 25 Jul 2024 02:04:05.007091000 UTC +00:00[32m>[0m,
+ [32m#<Patient:0x00007f53003fd8d8[0m
+  id: [34m[1m15[0m,
+  name: [36m[1mnil[0m,
+  contact_info: [36m[1mnil[0m,
+  created_at: Thu, 25 Jul 2024 02:04:05.009350000 UTC +00:00,
+  updated_at: Thu, 25 Jul 2024 02:04:05.009350000 UTC +00:00[32m>[0m,
+ [32m#<Patient:0x00007f53003fd810[0m
+  id: [34m[1m16[0m,
+  name: [36m[1mnil[0m,
+  contact_info: [36m[1mnil[0m,
+  created_at: Thu, 25 Jul 2024 02:04:05.011318000 UTC +00:00,
+  updated_at: Thu, 25 Jul 2024 02:04:05.011318000 UTC +00:00[32m>[0m,
+ [32m#<Patient:0x00007f53003fd748[0m
+  id: [34m[1m17[0m,
+  name: [36m[1mnil[0m,
+  contact_info: [36m[1mnil[0m,
+  created_at: Thu, 25 Jul 2024 02:04:05.013924000 UTC +00:00,
+  updated_at: Thu, 25 Jul 2024 02:04:05.013924000 UTC +00:00[32m>[0m,
+ [32m#<Patient:0x00007f53003fd630[0m
+  id: [34m[1m18[0m,
+  name: [36m[1mnil[0m,
+  contact_info: [36m[1mnil[0m,
+  created_at: Thu, 25 Jul 2024 02:04:05.016233000 UTC +00:00,
+  updated_at: Thu, 25 Jul 2024 02:04:05.016233000 UTC +00:00[32m>[0m,
+ [31m[1m"[0m[31m...[0m[31m[1m"[0m]

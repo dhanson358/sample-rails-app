@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient_id: 1
+  charge: 9.99
+  credit: 9.99
+  date: 2024-07-24 21:56:59
+  performed_by: MyString
+
+two:
+  patient_id: 1
+  charge: 9.99
+  credit: 9.99
+  date: 2024-07-24 21:56:59
+  performed_by: MyString

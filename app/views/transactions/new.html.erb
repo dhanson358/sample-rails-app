@@ -1,0 +1,26 @@
+<h1>New Transaction</h1>
+<%= form_with model: @transaction, local: true do |form| %>
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.number_field :patient_id %>
+  </div>
+  <div class="field">
+    <%= form.label :charge %>
+    <%= form.number_field :charge, step: '0.01' %>
+  </div>
+  <div class="field">
+    <%= form.label :credit %>
+    <%= form.number_field :credit, step: '0.01' %>
+  </div>
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= form.label :performed_by %>
+    <%= form.text_field :performed_by %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

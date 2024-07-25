@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Payment</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="container">
+    <h1>New Payment</h1>
+    <%= form_with model: @payment, local: true, class: 'payment-form' do |form| %>
+      <div class="field">
+        <%= form.label :patient_id %>
+        <%= form.number_field :patient_id %>
+      </div>
+      <div class="field">
+        <%= form.label :charge %>
+        <%= form.number_field :charge, step: '0.01', min: '0', value: '0.00', placeholder: '0.00' %>
+      </div>
+      <div class="field">
+        <%= form.label :credit %>
+        <%= form.number_field :credit, step: '0.01', min: '0', value: '0.00', placeholder: '0.00' %>
+      </div>
+      <div class="field">
+        <%= form.label :date %>
+        <%= form.datetime_select :date %>
+      </div>
+      <div class="field">
+        <%= form.label :performed_by %>
+        <%= form.text_field :performed_by %>
+      </div>
+      <div class="actions">
+        <%= form.submit 'Save Payment', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
+
+
+

@@ -11,3 +11,16 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// Get CSRF token from meta tag
+const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+
+fetch('/your-endpoint', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-CSRF-Token': token
+  },
+  body: JSON.stringify({ yourData: 'value' })
+})
