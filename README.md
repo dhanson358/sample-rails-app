@@ -50,3 +50,106 @@ Some seed data is provided in the `sample_data` folder of this project.
 
 1. There is a [VSCode Dev Container](https://code.visualstudio.com/docs/remote/containers) definition in this project (in the `.devcontainer` folder) which provides setup for a Postgres DB.  You can use that if you want, or something else, but make it easy for someone else to setup the project and get it running themselves.  You don't have to use Postgres, but you should use some DB.
 1. Using some JavaScript is fine, though not strictly required, but this should primarily be a Rails app, not an SPA+API.
+
+
+-------------------------------------------------------------------------------------------------
+# Sample Rails App done by Mike Chavez
+
+## Notes
+- The application includes a "kiosk mode" that automatically refreshes the dashboard every 30 seconds.
+- The project was completed without using Docker due to network issues. PostgreSQL was set up and configured manually.
+
+## Overview
+
+This project demonstrates the development of a Rails application for managing patient transactions and payments, with a dashboard to display outstanding balances.
+
+## Steps
+
+### 1. Forking the Repository
+1. **Fork the Repo**:
+   - Fork the repository on GitHub.
+   - Clone the forked repository:
+     ```sh
+     git clone https://github.com/your-username/sample-rails-app.git
+     cd sample-rails-app
+     ```
+
+2. **Create a Branch**:
+   - Create and switch to a new branch for your work:
+     ```sh
+     git checkout -b mikec
+     ```
+
+### 2. Setting Up the Environment
+3. **Install Dependencies**:
+   - Ensure you have Ruby (3.0.6) and Rails installed.
+   - Install Bundler and project dependencies:
+     ```sh
+     gem install bundler
+     bundle install
+     ```
+
+4. **Set Up PostgreSQL**:
+   - Ensure PostgreSQL is installed and running.
+   - Create the development and test databases:
+     ```sh
+     sudo -u postgres createuser -s your-username
+     sudo -u postgres createdb sample_rails_app_development
+     sudo -u postgres createdb sample_rails_app_test
+     ```
+
+5. **Configure Database**:
+   - Update `config/database.yml` with your PostgreSQL credentials.
+
+### 3. Creating Models and Migrations
+6. **Generate Models and Migrations**:
+   - Generate the necessary models and migrations.
+
+7. **Run Migrations**:
+   - Apply the migrations to create the database schema:
+     ```sh
+     rails db:migrate
+     ```
+
+8. **Seed the Database**: (made simple seed data first, then implemented sample_data)   
+   - Populate the database with initial data:
+     ```sh
+     rails db:seed
+     ```
+
+### 4. Creating Controllers and Views
+9. **Generate Controllers**:
+   - Generate controllers for patients, payments, transactions, and dashboard.
+
+10. **Set Up Routes**:
+    - Define routes in `config/routes.rb`.
+
+11. **Create Views**:
+    - Create the necessary views for each controller.
+
+### 5. Implementing Logic in Controllers and Models
+12. **Controllers**:
+    - Implement actions in controllers.
+
+13. **Models**:
+    - Add associations and methods in models.
+
+### 6. Final Steps
+14. **Test the Application**:
+    - Start the Rails server and test the application:
+      ```sh
+      rails server
+      ```
+    - Open `http://localhost:3000` in your browser and verify the functionality.
+
+15. **Commit and Push Changes**:
+    - Commit your changes and push them to the remote repository:
+      ```sh
+      git add .
+      git commit -m "Add payments feature and dashboard"
+      git push origin add-features
+      ```
+
+## Notes
+- The application includes a "kiosk mode" that automatically refreshes the dashboard every 30 seconds.
+- The project was completed without using Docker due to network issues. PostgreSQL was set up and configured manually.
