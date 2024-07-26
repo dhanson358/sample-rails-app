@@ -179,4 +179,4 @@ This project demonstrates the development of a Rails application for managing pa
 
 ## Notes
 - The application includes a "kiosk mode" that automatically refreshes the dashboard every 30 seconds.
-- The project was completed without using Docker due to network issues. PostgreSQL was set up and configured manually.
+- The project was completed without using Docker due to network issues. PostgreSQL was set up and configured manually
